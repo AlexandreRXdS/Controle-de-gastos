@@ -63,6 +63,7 @@ select {
     border: 1px solid #3498db;
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
 }
 
 button {
@@ -74,6 +75,11 @@ button {
     background-color: #3498db;
     border-radius: 10px;
     border:none;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: #85c1e9;
 }
 
 p {
