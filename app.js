@@ -11,7 +11,7 @@ const obterElemento = (id) => document.getElementById(id);
 const valorNegativo = (valor) => valor < 0;
 const somaValor = (total, valor) => total + valor;
 const limparCampos = () => obterElemento("valor").value = "";
-const formataValor = (valor) => valor.toFixed(2).replace(".", ",");
+const formataValor = (valor) => valor.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
 
 //obter valores do formulário
 const obterValorInformado = () => parseFloat(obterElemento("valor").value);
@@ -36,8 +36,9 @@ function adicionar() {
     const valorInformado = obterValorInformado();
     const categoriaInformada = obterCategoriaInformada();
 
-    if(valorNegativo(valorInformado)) {
-        alert("Valor inválido. O valor não pode ser negativo");
+    if(valorNegativo(valorInformado) || isNaN(valorInformado)) {
+        alert("Valor inválido. Insira um valor válido");
+        limparCampos();
         return;
     }
 
